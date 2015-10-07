@@ -16,4 +16,5 @@ Run the container with the following environmental variables:
 
 `docker run -d -e "DOMAIN=example.com" -e "HOSTNAMES=master,node01,node02" -e "master_IP=192.168.122.100" -e "node01_IP=192.168.122.101" -e "node02_IP=192.168.122.102" -e "WILDCARD=.cloudapps.example.com" -e "WILDCARD_IP=192.168.122.100" -p 53:53/udp edseymour/ose-dns`
 
-
+## Run Script
+The `run-ose-dns` script includes some common defaults for a small OSE3 deployment, and simplifies the task of launching the container. 

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+domain=example.com
+cloud=.cloudapps.example.com
+master_ip=$1
+node01_ip=$2
+node02_ip=$3
+
+docker run -d -e "DOMAIN=${domain}" -e "HOSTNAMES=master,node01,node02" \
+-e "master_IP=${master_ip}" \
+-e "node01_IP=${node01_ip}" \
+-e "node02_IP=${node02_ip}" \
+-e "WILDCARD=${cloud}" \
+-e "WILDCARD_IP=${master_ip}" \
+-p 127.0.0.1:53:53/udp \
+--name=ose-dns \
+edseymour/ose-dns
+

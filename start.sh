@@ -24,5 +24,5 @@ done
 
 cat ${hfn}
 
-echo "/usr/sbin/dnsmasq -d --local-service --local=/$DOMAIN/ --address=/$WILDCARD/$WILDCARD_IP --conf-dir=/etc/dnsmasq.d"
+echo "/usr/sbin/dnsmasq -d --local=/$DOMAIN/ --address=/$WILDCARD/$WILDCARD_IP --conf-dir=/etc/dnsmasq.d"
 /usr/sbin/dnsmasq -d --local-service --local=/$DOMAIN/ --address=/$WILDCARD/$WILDCARD_IP --conf-dir=/etc/dnsmasq.d

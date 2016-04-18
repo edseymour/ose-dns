@@ -1,0 +1,14 @@
+[Unit]
+Description=DNSMasq Container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker kill ose-dns
+ExecStartPre=-/usr/bin/docker rm ose-dns
+ExecStart=/usr/bin/docker run --name ose-dns -e "DOMAIN=example.com" -e "HOSTNAMES=ose3master,ose3nodo1,ose3nodo2" -e "ose3master_IP=10.233.133.96" -e "ose3nodo1_IP=10.233.133.97" -e "ose3nodo2_IP=10.233.133.98" -e "WILDCARD=.apps.example.com" -e "WILDCARD_IP=10.233.133.96" -p 53:53/udp edseymour/ose-dns 
+ExecStop=/usr/bin/docker stop -t 2 ose-dns
+
+[Install]
+WantedBy=local.target

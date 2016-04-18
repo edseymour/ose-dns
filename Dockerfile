@@ -1,8 +1,8 @@
-FROM fedora:22
+FROM rhel7.2:latest
 
 MAINTAINER edseymour <edwaado@gmail.com>
 
-RUN dnf -y install dnsmasq && dnf clean all
+RUN yum -y install dnsmasq && yum clean all
 ADD start.sh /start.sh
 ADD dnsmasq.conf /etc/dnsmasq.conf
 RUN chmod u+x /start.sh
